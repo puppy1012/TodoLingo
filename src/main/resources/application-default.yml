@@ -1,0 +1,20 @@
+spring:
+  jpa:
+    database: h2                      # 사용할 데이터베이스 종류를 H2로 설정
+    open-in-view: false               # 트랜잭션 외부에서 영속성 컨텍스트 접근 금지 (성능, 메모리 최적화)
+    show-sql: true                    # 실행된 SQL문 콘솔 출력 여부
+    hibernate:
+      ddl-auto: create                # 애플리케이션 시작 시 테이블을 생성 (기존 테이블 삭제 후 재생성)
+    properties:
+      hibernate:
+        format_sql: false             # 출력되는 SQL문을 보기 좋게 포맷하지 않음 (한 줄로 출력)
+    # default_batch_fetch_size: 10    # 배치 크기를 지정해 N+1 문제 해결 시 사용 (주석 처리)
+  datasource:
+    url: jdbc:h2:mem:TodoLingo        # H2 메모리 내 DB URL (애플리케이션 종료 시 데이터 삭제됨)
+    username: sa                      # 데이터베이스 사용자 이름 (기본값 sa)
+    password:                         # 데이터베이스 비밀번호 (기본값 빈 문자열)
+    driver-class-name: org.h2.Driver  # H2 데이터베이스 사용을 위한 JDBC 드라이버 클래스 설정
+  h2:
+    console:
+      enabled: true                   # H2 데이터베이스 웹 콘솔 사용 여부
+      path: /h2-console               # 웹 콘솔 접근 경로 (localhost:8080/h2-console 등)

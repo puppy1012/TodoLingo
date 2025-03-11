@@ -1,0 +1,16 @@
+spring:
+  jpa:
+    database: mysql                             # 사용할 데이터베이스 종류를 MySQL로 설정
+    open-in-view: false                         # 트랜잭션 외부에서 영속성 컨텍스트 접근 방지 (성능, 메모리 최적화)
+    show-sql: true                              # 실행되는 SQL문 콘솔 출력 여부 (디버깅 용도)
+    hibernate:
+      ddl-auto: none                            # Hibernate가 DB 스키마 자동 생성/수정하지 않음 (운영 환경 권장)
+    properties:
+      hibernate:
+        format_sql: false                       # SQL문 포맷 비활성화 (한 줄로 출력)
+    # default_batch_fetch_size: 10              # 배치 사이즈 설정(N+1 문제 방지용), 현재 비활성화 상태
+  datasource:
+    url: jdbc:mysql://mysql:3306/TodoLingo     # MySQL 데이터베이스 연결 URL (mysql 서버의 portfolio DB 사용)
+    username: root                              # DB 사용자 계정 이름
+    password: ENC(5Q0kblP/F+yDvz11YgjH+byOIIpu/AuA) # 암호화된 DB 비밀번호
+    driver-class-name: com.mysql.cj.jdbc.Driver # MySQL 8.x 이상 JDBC 드라이버 클래스
